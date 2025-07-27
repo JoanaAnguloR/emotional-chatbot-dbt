@@ -7,6 +7,10 @@ from api.utils.respuestas import respuestas_emocionales
 
 
 router = APIRouter()
+# Endpoint principal: /predict/
+# Combina la salida del modelo ML con el detector semántico.
+# Si el detector semántico identifica una emoción con mayor certeza, se usa como override.
+# Siempre se devuelve una respuesta empática según la emoción final.
 
 @router.post("/predict/")
 async def predict(data: MensajeInput):
@@ -20,7 +24,7 @@ async def predict(data: MensajeInput):
     # Fallback semántico
     resultado_fallback = analizar_emocion(texto)
 
-    # Override si el fallback tiene score alto y emoción distinta
+    # Override (si el fallback tiene score alto y emoción distinta)
     override = False
     emocion_final = emocion_ml
     if resultado_fallback["score"] > 0 and resultado_fallback["emocion"] != emocion_ml:
@@ -31,6 +35,12 @@ async def predict(data: MensajeInput):
         logging.info(f"Emoción final (ML): {emocion_final}")
 
     respuesta = respuestas_emocionales.get(emocion_final, respuestas_emocionales["neutral"])
+
+# Respuesta estructurada con detalles:
+# - emoción del modelo ML
+# - emoción final (con o sin override)
+# - respuesta empática
+# - detalles del análisis semántico
 
     return {
         "input": texto,

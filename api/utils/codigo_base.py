@@ -12,7 +12,7 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 app = FastAPI()
 logging.basicConfig(level=logging.INFO)
 
-# Carga del modelo Hugging Face
+# Carga del modelo 
 tokenizer = AutoTokenizer.from_pretrained(
     "mrm8488/t5-base-finetuned-emotion",
     legacy=False  # para usar el comportamiento nuevo y silenciar el warning

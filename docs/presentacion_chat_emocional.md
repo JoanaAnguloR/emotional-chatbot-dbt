@@ -20,13 +20,13 @@ Toda interacción se enmarca en la intención de fortalecer el vínculo terapéu
 
 ---
 
-## 🎯 Objetivo del proyecto
+## Objetivo del proyecto
 
 El chatbot fue diseñado como un acompañante emocional entrenado con enfoques clínicos respaldados por evidencia, particularmente los incorporados en la Terapia Dialéctica Conductual (DBT). Su propósito es proporcionar a los usuarios una herramienta conversacional accesible que los apoye en el inicio de procesos de autorregulación emocional.
 
 ---
 
-## 🧠 Enfoque DBT aplicado
+## Enfoque DBT aplicado
 
 La arquitectura emocional del bot se alinea con los principios terapéuticos de DBT en los siguientes niveles:
 
@@ -44,7 +44,7 @@ Se prevé la implementación de módulos para acompañar procesos de exposición
 
 ---
 
-## 🧪 Estado actual del desarrollo
+##  Estado actual del desarrollo
 
 El chatbot se encuentra en su **fase de aprendizaje emocional**, con funcionalidades centradas en:
 
@@ -55,7 +55,7 @@ El chatbot se encuentra en su **fase de aprendizaje emocional**, con funcionalid
 
 ---
 
-## 🛤️ Roadmap terapéutico
+##  Roadmap terapéutico
 
 1. ✅ **Aprendizaje emocional básico**: detección y clasificación  
 2. 🔄 **Intervenciones DBT para regulación emocional**: en desarrollo  

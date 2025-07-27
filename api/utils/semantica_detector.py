@@ -1,7 +1,11 @@
 from rapidfuzz import fuzz
 import re
 from api.utils.normalizacion import normalizar_texto
+
 # Diccionario modular de emociones
+# Construido con frases semánticas divididas por tipo
+# cada emoción contiene subcategorías: somáticos, cognitivos, conductuales, metáforas
+
 diccionario_emocional = diccionario_emocional = {
     "enojo": {
         "somaticos": [
@@ -139,13 +143,17 @@ diccionario_emocional = diccionario_emocional = {
         "metaforas": ["fuego interno", "tormenta en el pecho"]
     }
 }
-# Ponderaciones
+# Ponderaciones por tipo de frase
+# Se usa para dar mayor peso a lo somático, metáforas y cognitivo vs. conducta observable
+
 ponderaciones_tipo = {
     "somaticos": 1.5,
     "cognitivos": 1.2,
     "conductuales": 1.0,
     "metaforas": 1.3
 }
+
+# Función auxiliar para verificar si una frase coincide parcialmente con el texto
 
 def coincide(frase_norm: str, texto_norm: str) -> bool:
     if frase_norm in texto_norm:
@@ -195,3 +203,5 @@ def analizar_emocion(texto: str) -> dict:
         "detalles": detalles[emo],
         "score": round(val, 2)
     }
+# Devuelve emoción detectada, intensidad basada en score,
+# frases coincidentes y valor total acumulado
